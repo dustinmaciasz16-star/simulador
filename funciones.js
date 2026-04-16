@@ -13,6 +13,12 @@ function calcularCapacidadDePago(montoDisponible){
     return capasidadDePago;
 }
 
+function calcularInteresSimple(monto, tasa, plazoAnios){
+    let interes = monto * (tasa / 100) * plazoAnios;
+    
+    return interes
+}
+
 function texto (id,vari){
     let texto1 = document.getElementById(id);
     texto1.innerText=vari.toFixed(2);    
