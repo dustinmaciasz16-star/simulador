@@ -16,7 +16,20 @@ function calcular() {
     let plazo = parseInt(document.getElementById("txtPlazo").value);
     let tasa = parseInt(document.getElementById("txtTasaInteres").value);
 
-    let interes = calcularInteresSimple(monto, plazo, tasa);
+    let interes = calcularInteresSimple(monto, tasa, plazo);
 
     texto("spnInteresPagar", interes);
+
+    let valorPagar = calcularTotalPagar(monto, interes);
+
+    texto("spnTotalPrestamo", valorPagar);
+
+    let cuotasMensuales = calcularCuotaMensual(valorPagar, plazo);
+
+    texto("spnCuotaMensual", cuotasMensuales);
+
+    let analizarCredito = aprobarCredito(capasidadDePago, cuotasMensuales);
+
+    texto2("spnEstadoCredito", analizarCredito)
+
 }
