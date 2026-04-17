@@ -1,52 +1,33 @@
-//AQUI TODA LA LOGICA DE LAS FUNCIONES DEL NEGOCIO
+// =========================
+// LOGICA DE NEGOCIO
+// =========================
+
 function calcularDisponible(ingresos, egresos){
     let disponible = ingresos - egresos;
-    if(disponible < 0){
-        disponible = 0;
-    }
-    return disponible;
+    return disponible < 0 ? 0 : disponible;
 }
 
-function calcularCapacidadDePago(montoDisponible){
-    let capasidadDePago = montoDisponible / 2;
-
-    return capasidadDePago;
+function calcularCapacidadDePago(disponible){
+    return disponible * 0.4;
 }
 
-function calcularInteresSimple(monto, tasa, plazoAnios){
-    let interes = monto * (tasa / 100) * plazoAnios;
-    
-    return interes
+function calcularInteresSimple(monto, tasa, plazo){
+    return monto * (tasa / 100) * plazo;
 }
 
 function calcularTotalPagar(monto, interes){
     const SOLCA = 100;
-    let valorPagar = monto + interes + SOLCA;
-
-    return valorPagar;
+    return monto + interes + SOLCA;
 }
 
-function calcularCuotaMensual(total, plazoAnios){
-    let plazoMes = plazoAnios * 12;
-    let cuotasMensuales = total / plazoMes;
-
-    return cuotasMensuales;
+function calcularCuotaMensual(total, plazo){
+    return total / (plazo * 12);
 }
 
-function aprobarCredito(capasidadPago, cuotasMensuales){
-    if(capasidadPago >= cuotasMensuales){
-        return true;
+function aprobarCredito(capacidad, cuota){
+    if(capacidad >= cuota){
+        return "CRÉDITO APROBADO";
     } else {
-        return false;
+        return "CRÉDITO RECHAZADO";
     }
-}
-
-function texto (id,vari){
-    let texto1 = document.getElementById(id);
-    texto1.innerText=vari.toFixed(2);    
-}
-
-function texto2 (id,vari){
-    let texto2 = document.getElementById(id);
-    texto2.innerText=vari;    
 }

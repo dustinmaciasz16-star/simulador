@@ -4,45 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Crédito</title>
-    <link rel="stylesheet" href="simulador.css">
+
+    <!-- Tu CSS -->
+    <link rel="stylesheet" href="assets/css/simulador.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <h1>Simulador de Crédito</h1>
+<div class="container d-flex justify-content-center align-items-start min-vh-100 py-5">
+    <div class="card shadow-lg p-4" style="max-width: 420px; width: 100%; border-top: 5px solid #ffcc00;">
 
-        <h2>Datos financieros</h2>
-        <label for="txtIngresos">Ingresos:</label>
-        <input type="text" id="txtIngresos">
+        <h3 class="text-center mb-3">💰 Simulador de Crédito</h3>
 
-        <label for="txtEgresos">Egresos:</label>
-        <input type="text" id="txtEgresos">
+        <h6 class="text-muted">Datos financieros</h6>
 
-        <p>Disponible: <span id="spnDisponible" ></span></p>
-        <p>Capacidad de pago mensual: <span id="spnCapacidadPago"></span></p>
-
-        <h2>Solicitud de crédito</h2>
-        <label for="txtMonto">Monto:</label>
-        <input type="text" id="txtMonto">
-
-        <label for="txtPlazo">Plazo en años:</label>
-        <input type="text" id="txtPlazo">
-
-        <label for="txtTasaInteres">Tasa de interés:</label>
-        <input type="text" id="txtTasaInteres">
-
-        <p>Interés a pagar: <span id="spnInteresPagar"></span></p>
-        <p>Total préstamo: <span id="spnTotalPrestamo"></span></p>
-        <p>Cuota mensual: <span id="spnCuotaMensual"></span></p>
-        <p>Estado de crédito: <span id="spnEstadoCredito">ANALIZANDO...</span></p>
-
-        <div class="buttons">
-            <button id="btnCalcularCredito" onclick="calcular()">Calcular Crédito</button>
-            <button id="btnReiniciar">Reiniciar</button>
+        <!-- INGRESOS -->
+        <div class="mb-3">
+            <label class="form-label">Ingresos</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-cash-stack"></i></span>
+                <input type="number" id="txtIngresos" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorIngresos"></small>
         </div>
-    </div>
 
-    <script src="funciones.js"></script>
-    <script src="simulador.js"></script>
+        <!-- EGRESOS -->
+        <div class="mb-3">
+            <label class="form-label">Egresos</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-wallet2"></i></span>
+                <input type="number" id="txtEgresos" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorEgresos"></small>
+        </div>
+
+        <!-- RESULTADOS -->
+        <p class="small">Disponible: <strong id="spnDisponible"></strong></p>
+        <p class="small">Capacidad: <strong id="spnCapacidadPago"></strong></p>
+
+        <h6 class="text-muted mt-3">Solicitud de crédito</h6>
+
+        <!-- MONTO -->
+        <div class="mb-3">
+            <label class="form-label">Monto</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-currency-dollar"></i></span>
+                <input type="number" id="txtMonto" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorMonto"></small>
+        </div>
+
+        <!-- PLAZO -->
+        <div class="mb-3">
+            <label class="form-label">Plazo (años)</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-calendar"></i></span>
+                <input type="number" id="txtPlazo" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorPlazo"></small>
+        </div>
+
+        <!-- TASA -->
+        <div class="mb-3">
+            <label class="form-label">Tasa (%)</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-percent"></i></span>
+                <input type="number" id="txtTasaInteres" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorTasa"></small>
+        </div>
+
+        <!-- RESULTADOS FINALES -->
+        <div class="bg-light p-3 rounded">
+            <p class="small mb-1">Interés: <strong id="spnInteresPagar"></strong></p>
+            <p class="small mb-1">Total: <strong id="spnTotalPrestamo"></strong></p>
+            <p class="small mb-1">Cuota: <strong id="spnCuotaMensual"></strong></p>
+            <p class="small">Estado: <span id="spnEstadoCredito" class="estado">ANALIZANDO...</span></p>
+        </div>
+
+        <!-- BOTONES -->
+        <div class="d-flex gap-2 mt-3">
+            <button class="btn w-100" style="background:#ffcc00;" onclick="calcular()">
+                <i class="bi bi-calculator"></i> Calcular
+            </button>
+
+            <button class="btn btn-dark w-100" onclick="reiniciar()">
+                <i class="bi bi-arrow-repeat"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/funciones.js"></script>
+<script src="assets/js/simulador.js"></script>
+
 </body>
 </html>
