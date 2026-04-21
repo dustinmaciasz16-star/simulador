@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulador de Crédito</title>
 
-    <!-- Tu CSS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="assets/css/simulador.css">
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
+    <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 <body>
 
 <div class="container d-flex justify-content-center align-items-start min-vh-100 py-5">
-    <div class="card shadow-lg p-4" style="max-width: 420px; width: 100%; border-top: 5px solid #ffcc00;">
+    <div class="card shadow-lg p-4">
+        <div class="logo">
+            <img src="assets/img/3.png" alt="Logo" width="80">
+        </div>
 
         <h3 class="text-center mb-3">💰 Simulador de Crédito</h3>
 
@@ -33,17 +36,38 @@
             <small class="text-danger error" id="errorIngresos"></small>
         </div>
 
-        <!-- EGRESOS -->
+        <!-- ARRIENDO -->
         <div class="mb-3">
-            <label class="form-label">Egresos</label>
+            <label class="form-label">Arriendo</label>
             <div class="input-group">
-                <span class="input-group-text"><i class="bi bi-wallet2"></i></span>
-                <input type="number" id="txtEgresos" class="form-control">
+                <span class="input-group-text"><i class="bi bi-house"></i></span>
+                <input type="number" id="txtArriendo" class="form-control">
             </div>
-            <small class="text-danger error" id="errorEgresos"></small>
+            <small class="text-danger error" id="errorArriendo"></small>
+        </div>
+
+        <!-- ALIMENTACIÓN -->
+        <div class="mb-3">
+            <label class="form-label">Alimentación</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-basket"></i></span>
+                <input type="number" id="txtAlimentacion" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorAlimentacion"></small>
+        </div>
+
+        <!-- VARIOS -->
+        <div class="mb-3">
+            <label class="form-label">Varios</label>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-receipt"></i></span>
+                <input type="number" id="txtVarios" class="form-control">
+            </div>
+            <small class="text-danger error" id="errorVarios"></small>
         </div>
 
         <!-- RESULTADOS -->
+        <p class="small">Gastos: <strong id="spnGastos"></strong></p>
         <p class="small">Disponible: <strong id="spnDisponible"></strong></p>
         <p class="small">Capacidad: <strong id="spnCapacidadPago"></strong></p>
 
@@ -89,7 +113,7 @@
 
         <!-- BOTONES -->
         <div class="d-flex gap-2 mt-3">
-            <button class="btn w-100" style="background:#ffcc00;" onclick="calcular()">
+            <button class="btn btn-warning w-100" onclick="calcular()">
                 <i class="bi bi-calculator"></i> Calcular
             </button>
 
@@ -101,7 +125,6 @@
     </div>
 </div>
 
-<!-- Scripts -->
 <script src="assets/js/funciones.js"></script>
 <script src="assets/js/simulador.js"></script>
 

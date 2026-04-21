@@ -1,9 +1,5 @@
-// =========================
-// LOGICA DE NEGOCIO
-// =========================
-
-function calcularDisponible(ingresos, egresos){
-    let disponible = ingresos - egresos;
+function calcularDisponible(ingresos, gastos){
+    let disponible = ingresos - gastos;
     return disponible < 0 ? 0 : disponible;
 }
 
@@ -25,9 +21,5 @@ function calcularCuotaMensual(total, plazo){
 }
 
 function aprobarCredito(capacidad, cuota){
-    if(capacidad >= cuota){
-        return "CRÉDITO APROBADO";
-    } else {
-        return "CRÉDITO RECHAZADO";
-    }
+    return capacidad >= cuota ? "CRÉDITO APROBADO" : "CRÉDITO RECHAZADO";
 }
